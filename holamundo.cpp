@@ -11,8 +11,6 @@ void main(){
     char abc[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};      
     printf("WRITE\n");
     fgets(target, sizeof(target), stdin);
-    printf("%d", strlen(target));
-    
     for(int i = 0; i < strlen(target); i++){
         if(target[i] == '\0')
             break;
@@ -22,7 +20,9 @@ void main(){
             SetConsoleTextAttribute(hConsole, 7);       
             for(int k = 0; k < i; k++)
                 printf("%c", target[k]);
-            SetConsoleTextAttribute(hConsole, j % 10);       
+            SetConsoleTextAttribute(hConsole, (j % 14) + 1); 
+            if(((j % 14) + 1) == 7)
+                SetConsoleTextAttribute(hConsole, 12); 
             printf("%c",abc[j]);
             printf("\n");
             std::chrono::milliseconds dura(50);
